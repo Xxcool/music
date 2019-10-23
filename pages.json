@@ -1,0 +1,60 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "音乐"
+			}
+		},
+		{
+			"path": "pages/rank/rank",
+			"style":{
+				"navigationBarTitleText":"排行榜"
+			}
+		},
+		{
+			"path": "pages/rankdetail/rankdetail",
+			"style":{
+				"navigationBarTitleText":"榜单详情"
+			}
+		},
+		{
+			"path":"pages/mv/mv",
+			"style":{
+				"navigationBarTitleText":"Mv"
+			}
+		}
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "音乐",
+        "navigationBarBackgroundColor" : "#e91e63",
+        "backgroundColor" : "#fff"
+	},
+	"tabBar":{
+		//底部选项卡
+		"color" : "#333333",
+		"selectedColor" : "#e91e63",
+		"borderStyle" : "black",
+		"list":[
+			{
+				"text": "首页",
+				"pagePath": "pages/index/index",
+				"iconPath" : "static/images/index-d.png",
+				"selectedIconPath" : "static/images/index-a.png"
+			},
+			{
+				"text": "排行榜",
+				"pagePath":"pages/rank/rank",
+				"iconPath" : "static/images/ranking-d.png",
+				"selectedIconPath" : "static/images/ranking-a.png"
+			},
+			{
+				"text": "Mv",
+				"pagePath":"pages/mv/mv",
+				"iconPath" : "static/images/mv-d.png",
+				"selectedIconPath" : "static/images/mv-a.png"
+			}
+		]
+	}
+}
