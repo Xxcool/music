@@ -6,15 +6,15 @@
 			<text class="item" :class="tabNum === 3 ? 'active' : '' " @tap="tabNum = 3">推荐MV</text>
 		</view>
 		<view class="content">
-			<view v-if="tabNum === 1"><MvList :data="newmvList"></MvList></view>
-			<view v-if="tabNum === 2"><MvList :data="rankmvList"></MvList></view>
-			<view v-if="tabNum === 3"><MvList :data="recommendmvList"></MvList></view>
+			<view v-if="tabNum === 1"><MvList :datalist="newmvList"></MvList></view>
+			<view v-if="tabNum === 2"><MvList :datalist="rankmvList"></MvList></view>
+			<view v-if="tabNum === 3"><MvList :datalist="recommendmvList"></MvList></view>
 		</view>
 	</view>
 </template>
 
 <script>
-	import MvList from '../../components/mvList.vue'
+	import MvList from '../../components/mv/mvList.vue'
 	export default {
 		components : {
 			MvList

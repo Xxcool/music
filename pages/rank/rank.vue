@@ -154,7 +154,7 @@
 			toRankList(e) {
 				let id = e
 				uni.navigateTo({
-					url:'../rankdetail/rankdetail?id=' + id
+					url:'../recommend/recommend?id=' + id + "&type=" + 'rank'
 				})
 			}
 		}

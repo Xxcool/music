@@ -24,6 +24,30 @@
 				"navigationBarTitleText":"Mv"
 			}
 		}
+        ,{
+            "path" : "pages/mvdetail/mvdetail",
+			"style":{
+				"navigationBarTitleText":"Mv详情"
+			}
+        }
+        ,{
+            "path" : "pages/recommend/recommend",
+			"style":{
+				"navigationBarTitleText":"推荐歌单列表"
+			}
+        }
+        ,{
+            "path" : "pages/singer/singer",
+			"style":{
+				"navigationBarTitleText":"歌手"
+			}
+        }
+        ,{
+            "path" : "pages/play/play",
+			"style":{
+				"navigationBarTitleText":"当前播放"
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",

@@ -2,11 +2,11 @@
 	<view class="ease-row mvListT">
 		<view
 			class="ease-col-2-1 item"
-			v-for="(item, index) in data"
+			v-for="(item, index) in datalist"
 			:key="item.id"
 			@tap="openMvDetail(item.id)"
 		>
-			<image :src="item.cover ? item.cover : item.picUrl" mode=""></image>
+			<image :src="item.cover ? item.cover : item.imgurl16v9" mode="aspectFill"></image>
 			<text class="name">{{ item.name }}</text>
 			<view class="playBtn"> <view class="icon"></view> </view>
 		</view>
@@ -20,11 +20,11 @@
 				
 			};
 		},
-		props: ['data'],
+		props: ['datalist'],
 		methods: {
 			openMvDetail(id) {
 				uni.navigateTo({
-					url:'../rank/rank?mvid=' + id
+					url:'../mvdetail/mvdetail?mvid=' + id
 				})
 			}
 		}

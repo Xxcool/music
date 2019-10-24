@@ -13,6 +13,7 @@
 			<swiper-item
 				v-for="(item, index) in bannerList"
 				:key="index"
+				@tap="openMusicRank(item)"
 			>
 				<image :src="item.imageUrl" mode="widthFix"></image>
 			</swiper-item>
@@ -35,10 +36,31 @@
 				}
 			};
 		},
-		props: ['bannerList']
+		props: ['bannerList'],
+		methods:{
+			openMusicRank (item) {
+				console.log(item)
+			}
+		}
 	}
 </script>
 
-<style>
+<style scoped>
+.banner swiper {
+	height: 236upx;
+	border-radius: 10upx;
+	overflow: hidden;
+}
 
+.banner swiper swiper-item {
+	padding: 0upx 5upx;
+	box-sizing: border-box;
+}
+
+.banner image {
+	width: 100%;
+	height: 236upx;
+	border-radius: 10upx;
+	box-shadow: 0 0 10px hsla(0, 0%, 51%, 0.1);
+}
 </style>

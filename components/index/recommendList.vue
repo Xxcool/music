@@ -9,6 +9,7 @@
 					v-for="(item, index) in personalizedList"
 					:key="item.index"
 					v-if="index <= 10"
+					@tap="openRecommend(item.id)"
 				>
 					<image :src="item.picUrl" mode="widthFix"></image>
 					<text class="name"> {{ item.name }}</text>
@@ -33,7 +34,14 @@
 				}
 			};
 		},
-		props:['personalizedList']
+		props:['personalizedList'],
+		methods:{
+			openRecommend (id) {
+				uni.navigateTo({
+					url:'../recommend/recommend?id=' + id + "&type=" + 'recommend'
+				})
+			}
+		}
 	}
 </script>
 
