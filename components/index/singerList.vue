@@ -30,7 +30,7 @@
 		methods:{
 			openSinger (id) {
 				uni.navigateTo({
-					url:'../../pages/singer/singer?id=' + id
+					url:'../singer/index?id=' + id
 				})
 			}
 		}

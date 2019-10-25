@@ -15,3 +15,11 @@ const app = new Vue({
     ...App
 })
 app.$mount()
+
+Vue.prototype.globalData = {
+	// #ifndef H5
+	bgAudioMannager: uni.getBackgroundAudioManager(),
+	// #endif
+	innerAudioContext: uni.createInnerAudioContext()
+}
+

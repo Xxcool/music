@@ -24,7 +24,7 @@
 		methods: {
 			openMvDetail(id) {
 				uni.navigateTo({
-					url:'../mvdetail/mvdetail?mvid=' + id
+					url:'../mvdetail/index?mvid=' + id
 				})
 			}
 		}

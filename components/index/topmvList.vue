@@ -32,7 +32,7 @@
 			openMvDetail (id) {
 				let mvid = id
 				uni.navigateTo({
-					url:'../mvdetail/mvdetail?mvid=' + mvid
+					url:'../mvdetail/index?mvid=' + mvid
 				})
 			}
 		}

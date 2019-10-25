@@ -38,7 +38,7 @@
 		methods:{
 			openRecommend (id) {
 				uni.navigateTo({
-					url:'../recommend/recommend?id=' + id + "&type=" + 'recommend'
+					url:'../recommend/index?id=' + id + "&type=" + 'recommend'
 				})
 			}
 		}

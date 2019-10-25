@@ -7,43 +7,43 @@
 			}
 		},
 		{
-			"path": "pages/rank/rank",
+			"path": "pages/rank/index",
 			"style":{
 				"navigationBarTitleText":"排行榜"
 			}
 		},
 		{
-			"path": "pages/rankdetail/rankdetail",
+			"path": "pages/rankdetail/index",
 			"style":{
 				"navigationBarTitleText":"榜单详情"
 			}
 		},
 		{
-			"path":"pages/mv/mv",
+			"path":"pages/mv/index",
 			"style":{
 				"navigationBarTitleText":"Mv"
 			}
 		}
         ,{
-            "path" : "pages/mvdetail/mvdetail",
+            "path" : "pages/mvdetail/index",
 			"style":{
 				"navigationBarTitleText":"Mv详情"
 			}
         }
         ,{
-            "path" : "pages/recommend/recommend",
+            "path" : "pages/recommend/index",
 			"style":{
 				"navigationBarTitleText":"推荐歌单列表"
 			}
         }
         ,{
-            "path" : "pages/singer/singer",
+            "path" : "pages/singer/index",
 			"style":{
 				"navigationBarTitleText":"歌手"
 			}
         }
         ,{
-            "path" : "pages/play/play",
+            "path" : "pages/play/index",
 			"style":{
 				"navigationBarTitleText":"当前播放"
 			}
@@ -52,7 +52,7 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "音乐",
-        "navigationBarBackgroundColor" : "#e91e63",
+        "navigationBarBackgroundColor" : "#d43c33",
         "backgroundColor" : "#fff"
 	},
 	"tabBar":{
@@ -69,13 +69,13 @@
 			},
 			{
 				"text": "排行榜",
-				"pagePath":"pages/rank/rank",
+				"pagePath":"pages/rank/index",
 				"iconPath" : "static/images/ranking-d.png",
 				"selectedIconPath" : "static/images/ranking-a.png"
 			},
 			{
 				"text": "Mv",
-				"pagePath":"pages/mv/mv",
+				"pagePath":"pages/mv/index",
 				"iconPath" : "static/images/mv-d.png",
 				"selectedIconPath" : "static/images/mv-a.png"
 			}

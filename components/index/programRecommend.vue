@@ -40,7 +40,7 @@
 		methods:{
 			toPlay (id) {
 				uni.navigateTo({
-					url:'../play/play?id=' + id
+					url:'../play/index?id=' + id
 				})
 			}
 		}
