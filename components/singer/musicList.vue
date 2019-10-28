@@ -4,6 +4,7 @@
 			<view class="item" 
 				v-for="(item, index) in musicList" 
 				:key="item.index"
+				@tap="openPlay(item.id)"
 			>
 				<view class="index">{{ index + 1}}</view>
 				<view class="info">
@@ -29,7 +30,11 @@
 		},
 		props:['musicList'],
 		methods: {
-			
+			openPlay (id) {
+				uni.navigateTo({
+					url: '../play/index?id=' + id
+				})
+			}
 		}
 	}
 </script>

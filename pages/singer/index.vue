@@ -1,5 +1,6 @@
 <template>
 	<view class="page-panel">
+		<Play></Play>
 		<view class="head">
 			<image v-if="headAddress" :src="headAddress"></image>
 			<view class="name"> {{ singerName }}</view>
@@ -32,10 +33,12 @@
 </template>
 
 <script>
+	import Play from '../../components/play/index.vue'
 	import MusicList from '../../components/singer/musicList.vue'
 	import MvList from '../../components/mv/mvList.vue'
 	export default {
 		components:{
+			Play,
 			MusicList,
 			MvList
 		},
