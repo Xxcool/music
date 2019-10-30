@@ -52,7 +52,7 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "音乐",
-        "navigationBarBackgroundColor" : "#d43c33",
+        "navigationBarBackgroundColor" : "#e91e63",
         "backgroundColor" : "#fff"
 	},
 	"tabBar":{

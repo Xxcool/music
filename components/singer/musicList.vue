@@ -3,7 +3,7 @@
 		<view class="playlist">
 			<view class="item" 
 				v-for="(item, index) in musicList" 
-				:key="item.index"
+				:key="item.id"
 				@tap="openPlay(item.id)"
 			>
 				<view class="index">{{ index + 1}}</view>

@@ -19,7 +19,7 @@
 		<view class="simiMvList">
 			<view class="item" 
 				v-for="(item, index) in mvsimilarList" 
-				:key="item.index"
+				:key="item.id"
 				@tap="changeItem(item.id)"
 			>
 				<view class="pic">

@@ -7,7 +7,7 @@
 			<view class="toplistArtistList">
 				<view class="item" 
 					v-for="(item, index) in toplistArtistList"
-					:key="item.index"
+					:key="item.id"
 					v-if="index <= 20"
 					@tap="openSinger(item.id)"
 				>

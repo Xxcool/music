@@ -7,7 +7,7 @@
 			<view class="topMvList">
 				<view class="item" 
 					v-for="(item, index) in TopMvList"
-					:key="item.index"
+					:key="item.id"
 					v-if="index <= 10"
 					@tap="openMvDetail(item.id)"
 				>
@@ -30,9 +30,8 @@
 		props: ['TopMvList'],
 		methods:{
 			openMvDetail (id) {
-				let mvid = id
 				uni.navigateTo({
-					url:'../mvdetail/index?mvid=' + mvid
+					url:'../mvdetail/index?mvid=' + id
 				})
 			}
 		}

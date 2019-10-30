@@ -55,6 +55,7 @@ export default {
 	box-sizing: border-box;
 	background: #fff;
 	box-shadow: 0 0 10px hsla(0, 0%, 51%, 0.1);
+	border-bottom: 2upx solid #e2e2e2;
 }
 .nowPlayIcom {
 	width: 60upx;

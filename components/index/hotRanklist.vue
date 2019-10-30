@@ -1,18 +1,19 @@
 <template>
-	<view class="page-panel" v-if="musicList != '' ">
+	<view class="page-panel" v-if="RankmusicList != '' ">
 		<view class="playinfo ease-row">
 			<view class="ease-col-3-1 coverImgUrl">
-				<image :src="musicList.coverImgUrl" mode="widthFix"></image>
+				<image :src="RankmusicList.coverImgUrl" mode="widthFix"></image>
 			</view>
 			<view class="ease-col-3-2">
-				<view class="name">{{ musicList.name }}</view>
-				<view class="description">{{ musicList.description }}</view>
+				<view class="name">{{ RankmusicList.name }}</view>
+				<view class="description">{{ RankmusicList.description }}</view>
 			</view>
 		</view>
 		<view class="playlist">
 			<view class="item" 
-				v-for="(item, index) in musicList.tracks" 
-				:key="item.index"
+				v-for="(item, index) in RankmusicList.tracks" 
+				:key="item.id"
+				@tap="openPlay(item.id)"
 			>
 				<view class="index">{{ index + 1}}</view>
 				<view class="info">
@@ -30,51 +31,28 @@
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				id: '',
-				type: '',
-				musicList: ''
-			}
-		},
-		onLoad (e) {
-			this.id = e.id
-			this.type = e.type
-			this.type === 'rank' ? this.getRankList() : this.getRecommentList()
-		},
-		methods: {
-			// 获取推荐歌单
-			getRecommentList () {
-				let _this = this;
-				let params = {
-					id : this.id
-				}
-				_this.MusicApi.request('playlist/detail', params, 'GET').then(res => {
-					_this.musicList = res.data.playlist
-				})
-			},
-			// 获取歌曲排行
-			getRankList () {
-				let _this = this;
-				let params = {
-					idx : this.id
-				}
-				_this.MusicApi.request('top/list',params, 'get').then(res => {
-					_this.musicList = res.data.playlist
-				})
-			}
+export default {
+	props:['RankmusicList'],
+	methods: {
+		openPlay (id) {
+			uni.navigateTo({
+				url: '../play/index?id=' + id
+			})
 		}
 	}
+}
 </script>
 
 <style scoped>
+.page-panel{
+	padding:0upx 20upx;
+}
 .playinfo .coverImgUrl{
-	height: 212upx;
+	height: 200upx;
 }
 .playinfo .coverImgUrl image{
 	width: 100%;
-	height: 212upx;
+	height: 200upx;
 	border-radius: 10upx;
 	box-shadow: 0 0 10px hsla(0, 0%, 51%, 0.3);
 }

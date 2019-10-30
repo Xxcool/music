@@ -3,27 +3,31 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 const store = new Vuex.Store({
 	state:{
-		isMusicPlay: true, //ÒôÀÖÊÇ·ñ¿ªÊ¼
-		isMusicStart: false, //ÒôÀÖ¿ªÊ¼×´Ì¬
-		musicInfo: '', //ÒôÀÖÏêÇé
-		playTime: '' //ÒôÀÖÊ±¼ä
+		isMusicPlay: true, //éŸ³ä¹æ˜¯å¦å¼€å§‹
+		isMusicStart: false, //éŸ³ä¹å¼€å§‹çŠ¶æ€
+		musicInfo: '', //éŸ³ä¹è¯¦æƒ…
+		playTime: '', //éŸ³ä¹æ—¶é—´
+		commentList: '', //å½“å‰è¯„è®º
+		hotcommentList: '' //çƒ­é—¨è¯„è®º
 	},
 	mutations: {
 		setMusicInfo(state, provider) {
 			state.musicInfo = provider;
-			console.log(provider, '1')
 		},
 		musicStart(state, provider) {
-			console.log(provider, 2)
 			state.isMusicStart = provider;
 		},
 		setMusicPlay(state, provider) {
-			console.log(provider, 3)
 			state.isMusicPlay = provider;
 		},
 		setPlayTime(state, provider) {
-			console.log(provider, 4)
 			state.playTime = provider;
+		},
+		setComment(state, provider) {
+			state.commentList = provider
+		},
+		setHotComment(state, provider) {
+			state.hotcommentList = provider
 		}
 	}
 })

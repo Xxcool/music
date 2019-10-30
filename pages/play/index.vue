@@ -35,10 +35,26 @@
 			</view>
 		</view>
 		<view class="comment">
-			<view v-for="(item, index) in comment" :key="item.index">
-				<image :src="item.user.avatarUrl"></image>
-				<text>{{ item.user.nickname }}</text>
-				<text>{{ item.content }}</text>
+			<view style="padding:0upx 10upx">热门评论</view>
+			<view class="item" v-for="(item, index) in hotcomment" :key="item.index">
+				<view class="index">
+					<image :src="item.user.avatarUrl"></image>
+				</view>
+				<view class="info">
+					<view class="name">{{item.user.nickname}}</view>
+					<text class="arName">{{ item.content }}</text>
+					<text style="font-size: 26upx;">{{item.likedCount}}</text>
+				</view>
+			</view>
+			<view style="padding:30upx 10upx 10upx">最近评论</view>
+			<view class="item" v-for="(item, index) in comment" :key="item.index">
+				<view class="index">
+					<image :src="item.user.avatarUrl"></image>
+				</view>
+				<view class="info">
+					<view class="name">{{item.user.nickname}}</view>
+					<text class="arName">{{ item.content }}</text>
+				</view>
 			</view>
 		</view>	
 	</view>
@@ -95,6 +111,8 @@ export default {
 			this.isStop = false;
 			this.isPlay = true;
 		} else {
+			this.comment = this.commentList;
+			this.hotcomment = this.hotcommentList;
 			this.musicDetail = this.musicInfo;
 			this.musicTime = this.playTime;
 			this.isMusicPlay ? (this.isPlay = true) : (this.isPlay = false);
@@ -121,12 +139,14 @@ export default {
 		this.setPlayTime(this.musicTime);
 		this.setMusicInfo(this.musicDetail);
 		this.setMusicPlay(this.isPlay);
+		this.setComment(this.comment);
+		this.setHotComment(this.hotcomment);
 	},
 	computed: {
-		...mapState(['isMusicStart', 'musicInfo', 'isMusicPlay', 'playTime'])
+		...mapState(['isMusicStart', 'musicInfo', 'isMusicPlay', 'playTime', 'commentList', 'hotcommentList'])
 	},
 	methods: {
-		...mapMutations(['musicStart', 'setMusicInfo', 'setMusicPlay', 'setPlayTime']),
+		...mapMutations(['musicStart', 'setMusicInfo', 'setMusicPlay', 'setPlayTime', 'setComment', 'setHotComment']),
 		// #ifndef H5
 		bgAudioMannagerFunc() {
 			this.bgAudioMannager.onTimeUpdate(() => {
@@ -189,12 +209,10 @@ export default {
 				ids: _this.musicDetail.id
 			}
 			_this.MusicApi.request('song/detail', params, 'GET').then(res => {
-				// _this.musicDetail.url = res.data[0].url
 				res.data.songs[0].name ? _this.musicDetail.name = res.data.songs[0].name : _this.musicDetail.name = ''
 				_this.musicDetail.picUrl = res.data.songs[0].al.picUrl
 				let songs = res.data.songs[0].ar
 				songs.forEach(item => {
-					console.log(item, 'item')
 					_this.musicDetail.author = _this.musicDetail.author + item.name + '/'
 				})
 				_this.musicDetail.author = _this.musicDetail.author.substr(0, _this.musicDetail.author.length - 1)
@@ -269,15 +287,14 @@ export default {
 page {
 	width: 100%;
 	height: 100%;
+	background: url(../../static/images/bg.jpg) repeat 50% 50%;
 }
-
 .page-panel-h {
 	position: relative;
 	z-index: 1;
 	width: 100%;
 	height: 100%;
 	color: #e91e63;
-	background: #4CD964;
 	text-align: center;
 }
 
@@ -312,7 +329,6 @@ page {
 }
 
 .player-panel {
-	background: #4CD964;
 	position: absolute;
 	z-index: 2;
 	/* 	border-top:1px solid #999999; */
@@ -359,5 +375,51 @@ page {
 	position: absolute;
 	top: 100%;
 	left: 0;
+	padding: 20upx;
 }
+.comment .item{
+	width: 100%;
+}
+.comment .item image{
+	width:100upx;
+	height:100upx;
+}
+.comment .item{
+	background: #fff;
+	border-radius: 10upx;
+	box-shadow: 0 0 10px hsla(0, 0%, 51%, 0.3);
+	margin-top: 20upx;
+	display: flex;
+}
+.comment .item .index{
+	margin-right: 20upx;
+	line-height: 50%;
+	font-weight: bold;
+	font-size: 48upx;
+	padding: 20upx 10upx;
+	color: #666;
+}
+.comment .item .info {
+	flex:1;
+	overflow: hidden;
+	padding: 20upx 0upx;
+}
+.comment .item .info .name{
+	font-size: 32upx;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.comment .item .info .arName{
+	font-size: 28upx;
+	color: #888;
+}
+.comment .item .btn{
+	width: 70upx;
+	line-height: 90upx;
+}
+/* .comment .item .btn image{
+	width: 100%;
+	height: 70upx;
+} */
 </style>

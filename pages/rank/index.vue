@@ -4,8 +4,8 @@
 		<view class="ranking-panel ease-row">
 			<div class="item ease-col-3-1" 
 				v-for="(item, index) in rankingList" 
-				:key="item.index"
-				@tap="toRankList(index)"
+				:key="item.id"
+				@tap="toRankList(item.id)"
 			>
 				<image class="ranking-pic" :src="item.picUrl" mode="widthFix"></image>
 				<view class="ranking-name">{{item.description}}</view>
@@ -156,8 +156,7 @@ export default {
 	},
 	methods: {
 		//跳转排行榜列表详情
-		toRankList(e) {
-			let id = e
+		toRankList(id) {
 			uni.navigateTo({
 				url:'../recommend/index?id=' + id + "&type=" + 'rank'
 			})

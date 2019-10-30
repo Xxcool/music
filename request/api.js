@@ -21,7 +21,8 @@ const config = {
 		artistSong: "artists",					//说明 : 调用此接口 , 传入歌手 id, 可获得歌手部分信息和热门歌曲 必选参数 : id: 歌手 id, 可由搜索接口获得
 		artistMv: "artist/mv",      			//说明 : 调用此接口 , 传入歌手 id, 可获得歌手 mv 信息
 		comment: "comment/music/",				//说明 : 调用此接口 , 传入歌曲 id/limit, 可获取当前歌曲的评论/热门评论 (不需要登陆)
-		searchHot: "search/hot/detail"			//说明 : 调用此接口 , 可获得热门搜索的歌曲 默认20条			
+		searchHot: "search/hot/detail",			//说明 : 调用此接口 , 可获得热门搜索的歌曲 默认20条
+		searchDetaul: "search/default"			//说明 : 调用此接口 , 传入需要搜索的关键词, 可获得所有搜索的歌曲列表  keywords: 歌曲名
 	}
 }
 export { config }

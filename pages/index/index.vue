@@ -24,30 +24,26 @@
 				></ProgramRecommend>
 			</view>
 			<view v-if="tabNum === 2">
-				<text>我是2</text>
+				<!-- 热歌榜 -->
+				<HotRankList :RankmusicList="RankmusicList"></HotRankList>
 			</view>
 			<view v-if="tabNum === 3">
-				<view class="search-block">
-				              <view class="search-ico-wapper">
-				                  <!-- <image src="../../static/chongzhi_sousuo/chongzhi-icon-sousuo@3x.png" class="search-ico" mode=""></image> -->
-				              </view>
-				              <input type="text" value="" placeholder="点击输入搜索内容" class="search-text" maxlength="10" focus/>
-				              <view class="search-ico-wapper1">
-				                 <!-- <image src="../../static/chongzhi_sousuo/chongzhi-icon-sys@3x.png" class="search-ico-1" mode=""></image> -->
-				             </view>
-				         </view>
+				<!-- 搜索 -->
+				<Search :HotMusicList="HotMusicList"></Search>
 			</view>
 		</view>
 	</view>
 </template>
 
 <script>
-	import Play from '../../components/play/index.vue'
-	import BannerList from '../../components/index/bannelList.vue'
-	import RecommendList from '../../components/index/recommendList.vue'
-	import TopmvList from '../../components/index/topmvList.vue'
-	import SingerList from '../../components/index/singerList.vue'
-	import ProgramRecommend from '../../components/index/programRecommend.vue'
+	import Play from '@/components/play/index.vue'
+	import BannerList from '@/components/index/bannelList.vue'
+	import RecommendList from '@/components/index/recommendList.vue'
+	import TopmvList from '@/components/index/topmvList.vue'
+	import SingerList from '@/components/index/singerList.vue'
+	import ProgramRecommend from '@/components/index/programRecommend.vue'
+	import HotRankList from '@/components/index/hotRanklist.vue'
+	import Search from '@/components/index/search.vue'
 	export default {
 		components:{
 			Play,
@@ -55,7 +51,9 @@
 			RecommendList,
 			TopmvList,
 			SingerList,
-			ProgramRecommend
+			ProgramRecommend,
+			HotRankList,
+			Search
 		},
 		data() {
 			return {
@@ -66,7 +64,9 @@
 				toplistArtistList: [],
 				programRecommendList: [],
 				RecommendTitle: '',
-				RecommentAllTitle: ''
+				RecommentAllTitle: '',
+				HotMusicList: [],
+				RankmusicList: []
 			}
 		},
 		onLoad() {
@@ -79,6 +79,7 @@
 				this.getTopMvList()  //Mv排行
 				this.getToplistArtistList() //歌手榜单
 				this.getProgramRecommendList() //精彩节目推荐
+				this.getRankList() //热歌榜
 				this.getHotMusic() //热门搜索
 			},
 			getBannerList () {
@@ -116,10 +117,19 @@
 					_this.programRecommendList = res.data.programs
 				})
 			},
+			getRankList () {
+				let _this = this;
+				let params = {
+					idx : 1
+				}
+				_this.MusicApi.request('top/list',params, 'get').then(res => {
+					_this.RankmusicList = res.data.playlist
+				})
+			},
 			getHotMusic () {
 				let _this = this;
 				_this.MusicApi.request('search/hot/detail', '', 'GET').then(res => {
-					console.log(res)
+					_this.HotMusicList = res.data.data
 				})
 			}
 		}
@@ -130,7 +140,6 @@
 .tab-title{
 	display: flex;
 	text-align: center;
-	padding:0upx 0upx 20upx;
 }
 .tab-title .item{
 	flex: 1;
@@ -138,47 +147,13 @@
 	font-weight: bold;
 	color: #888;
 	padding: 20upx 40upx;
-	border-bottom: 3px solid #fff;
+	box-shadow: 0 0 10px hsla(0, 0%, 50%, 0.1);
+	margin: 0upx 20upx 20upx;
+	border-radius: 10upx;
+	border: 1px solid #e2e2e2;
 }
 .tab-title .active{
-	border-color: #e91e63;
+	background: #e91e63;
+	color: #fff;
 }
-
- .search-ico, .search-ico-1{
-     width: 40upx;
-     height: 40upx;
- }
- .search-text{
-     font-size: 14px;
-     background-color: #FFFFFF;
-     height: 60upx;
-     width: 480upx;
- }
- .search-block{
-	 margin-top: 30upx;
-     display: flex;
-     flex-direction: row;
-     padding-left: 60upx;
-     position: relative;
-     top: -32upx;
-	 border: 1px solid #000;
- }
- .search-ico-wapper{
-     background-color: #FFFFFF;
-     display: flex;
-     flex-direction:column;
-     justify-content: center;
-     padding: 0upx 0upx 0upx 40upx;
-     border-bottom-left-radius:18px;
-     border-top-left-radius: 18px;
- }
- .search-ico-wapper1{
-     background-color: #FFFFFF;
-     display: flex;
-     flex-direction:column;
-     justify-content: center;
-     padding: 0upx 40upx 0upx 0upx;
-     border-bottom-right-radius:18px;
-     border-top-right-radius: 18px;
- }
 </style>

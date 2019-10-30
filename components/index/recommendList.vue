@@ -7,7 +7,7 @@
 			<view class="personalizedList">
 				<view class="item" 
 					v-for="(item, index) in personalizedList"
-					:key="item.index"
+					:key="item.id"
 					v-if="index <= 10"
 					@tap="openRecommend(item.id)"
 				>
