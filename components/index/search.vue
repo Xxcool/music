@@ -19,9 +19,6 @@
 				:key="item.id"
 				@tap="openPlay(item.id)"
 			>
-<!-- 				<view class="index btn">
-					<image :src="item.artists[0].img1v1Url" mode="widthFix"></image>
-				</view> -->
 				<view class="info">
 					<view class="name">{{item.name}}</view>
 					<text class="arName" v-if="item.alias.length">{{item.alias[0]}} / </text>
@@ -32,23 +29,44 @@
 				</view>
 			</view>
 		</view>
+		<view v-if="SearchList.length && isHotList === true">
+			<view class="searchTitle">搜索历史</view>
+			<view v-for="(item, index) in SearchList" class="history">
+				<uni-icons class="search" type="search" size="25"/>
+				<text class="name" @tap="searchItem(item)">{{ item }}</text>
+				<view class="btn">
+					<uni-icons class="close" type="closeempty" size="36" @click="remove(index)" />
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
 <script>
 import uniSearchBar from '@/components/uni-search-bar/uni-search-bar.vue'
+import uniIcons from '@/components/uni-icons/uni-icons.vue'
+import { mapState, mapMutations } from 'vuex';
 export default {
 	components:{
-		uniSearchBar
+		uniSearchBar,
+		uniIcons
 	},
 	data () {
 		return {
 			isHotList: true,
-			musicDetail: ''
+			musicDetail: '',
+			SearchList: []
 		}
 	},
 	props:['HotMusicList'],
+	mounted () {
+		this.SearchList = this.searchHistory
+	},
+	computed: {
+		...mapState(['searchHistory'])
+	},
 	methods:{
+		...mapMutations(['setSearchList']),
 		clear(item){
 			this.isHotList = true
 		},
@@ -63,22 +81,32 @@ export default {
 			_this.MusicApi.request('search/default', params, 'GET').then(res => {
 				_this.isHotList = false
 				_this.musicDetail = res.data.result.songs
+				_this.SearchList.push(index)
 			})
 		},
-		search(res) {
+		search(e) {
 			let _this = this;
 			let params = {
-				keywords : res.value
+				keywords : e.value
 			}
 			_this.MusicApi.request('search/default', params, 'GET').then(res => {
 				_this.isHotList = false
 				_this.musicDetail = res.data.result.songs
+				_this.SearchList.push(e.value)
 			})
 		},
 		openPlay (id) {
 			uni.navigateTo({
 				url: '../play/index?id=' + id
 			})
+		},
+		remove (index) {
+			this.SearchList.splice(index, 1)
+		}
+	},
+	watch: {
+		'SearchList' (val) {
+			this.setSearchList(val)
 		}
 	}
 }
@@ -160,5 +188,24 @@ export default {
 .playlist .item .btn image{
 	width: 100%;
 	height: 70upx;
+}
+.history{
+	display: flex;
+	flex-direction: row;
+	padding: 10upx 0upx;
+	border-bottom: 2upx solid #e2e2e2;
+	line-height: 40upx;
+	width: 100%;
+	flex-wrap: wrap;
+}
+.history .name{
+	overflow: hidden;
+	width: 80%;
+	margin-top: 2px;
+	color: #888;
+	font-size: 36upx;
+}
+.history .btn{
+	margin-top: -10upx;
 }
 </style>

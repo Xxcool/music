@@ -8,7 +8,6 @@
 				<view class="item" 
 					v-for="(item, index) in personalizedList"
 					:key="item.id"
-					v-if="index <= 10"
 					@tap="openRecommend(item.id)"
 				>
 					<image :src="item.picUrl" mode="widthFix"></image>

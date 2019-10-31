@@ -8,7 +8,8 @@ const store = new Vuex.Store({
 		musicInfo: '', //音乐详情
 		playTime: '', //音乐时间
 		commentList: '', //当前评论
-		hotcommentList: '' //热门评论
+		hotcommentList: '', //热门评论
+		searchHistory: [] //搜索记录
 	},
 	mutations: {
 		setMusicInfo(state, provider) {
@@ -28,6 +29,9 @@ const store = new Vuex.Store({
 		},
 		setHotComment(state, provider) {
 			state.hotcommentList = provider
+		},
+		setSearchList(state, provider) {
+			state.searchHistory = provider
 		}
 	}
 })

@@ -7,8 +7,8 @@
 			<view
 				class="item"
 				v-for="(item, index) in programRecommendList"
-				:key="item.id"
-				@tap="toPlay(item.id)"
+				:key="item.mainSong.id"
+				@tap="toPlay(item.mainSong.id)"
 			>
 				<view class="pic">
 					<image :src="item.coverUrl" mode="widthFix"></image>
