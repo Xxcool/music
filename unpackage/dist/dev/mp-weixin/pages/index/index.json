@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "音乐",
-  "usingComponents": {
-    "banner-list": "/components/bannelList",
-    "recommend-list": "/components/recommendList"
-  }
-}
