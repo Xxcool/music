@@ -62,13 +62,15 @@
 
 	},
     /* 小程序特有相关 */
-	"mp-weixin": {
-		"appid": "",
-		"setting": {
-			"urlCheck": false
-		},
-		"usingComponents": true
-	},
+    "mp-weixin" : {
+        "appid" : "wxd5c96622f142f8a7",
+        "setting" : {
+            "urlCheck" : false,
+            "es6" : true,
+            "postcss" : true
+        },
+        "usingComponents" : true
+    },
     "mp-alipay" : {
         "usingComponents" : true
     },
@@ -77,5 +79,16 @@
     },
     "mp-toutiao" : {
         "usingComponents" : true
+    },
+    "h5" : {
+        "title" : "music",
+        "template" : "index.html",
+        "router" : {
+            "base" : "",
+            "mode" : "hash"
+        },
+        "devServer" : {
+            "https" : false
+        }
     }
 }

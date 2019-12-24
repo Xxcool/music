@@ -333,7 +333,8 @@ page {
 	z-index: 2;
 	/* 	border-top:1px solid #999999; */
 	left: 0;
-	top: 155%;
+	top: 160%;
+	bottonm: 0;
 	width: 100%;
 	padding: 20upx 0upx;
 }

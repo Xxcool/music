@@ -8,7 +8,6 @@
 				<view class="item" 
 					v-for="(item, index) in toplistArtistList"
 					:key="item.id"
-					v-if="index <= 20"
 					@tap="openSinger(item.id)"
 				>
 					<image :src="item.img1v1Url" mode="widthFix"></image>

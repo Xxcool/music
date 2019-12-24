@@ -72,6 +72,11 @@
 		onLoad() {
 			this.getDataList()
 		},
+		onPullDownRefresh() {
+			//下拉请求所有数据
+			this.getDataList(); //请求所有数据
+			uni.stopPullDownRefresh();
+		},
 		methods: {		
 			getDataList() {
 				this.getBannerList() //Banner列表
@@ -102,10 +107,7 @@
 			},
 			getToplistArtistList () {
 				let _this = this;
-				let params = {
-					limit : 10
-				}
-				_this.MusicApi.request('toplist/artist', params, 'GET').then(res => {
+				_this.MusicApi.request('toplist/artist', '', 'GET').then(res => {
 					_this.toplistArtistList = res.data.list.artists
 				})
 			},
