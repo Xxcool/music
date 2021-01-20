@@ -16,7 +16,7 @@
 					min="0"
 					:max="musicTime.duration"
 					block-size="12"
-					activeColor="#E91E63"
+					activeColor="#41b883"
 				/>
 				<view class="player-btn">
 					<!-- <view class="nextPrev">
@@ -294,7 +294,7 @@ page {
 	z-index: 1;
 	width: 100%;
 	height: 100%;
-	color: #e91e63;
+	color: #41b883;
 	text-align: center;
 }
 
@@ -318,7 +318,7 @@ page {
 	height: 340upx;
 	border-radius: 50%;
 	overflow: hidden;
-	border: 15upx solid #e91e63;
+	border: 15upx solid #41b883;
 	box-shadow: 0px 0px 20upx rgba(233, 30, 99, 0.5);
 }
 

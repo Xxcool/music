@@ -72,7 +72,7 @@ export default {
 }
 .nowPlayInfo {
 	font-size: 34upx;
-	color: #e91e63;
+	color: #41b883;
 	margin-right: 12upx;
 }
 .nowPlayName {

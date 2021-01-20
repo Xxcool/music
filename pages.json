@@ -53,13 +53,13 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "音乐",
-        "navigationBarBackgroundColor" : "#e91e63",
+        "navigationBarBackgroundColor" : "#41b883",
         "backgroundColor" : "#fff"
 	},
 	"tabBar":{
 		//底部选项卡
 		"color" : "#333333",
-		"selectedColor" : "#e91e63",
+		"selectedColor" : "#41b883",
 		"borderStyle" : "black",
 		"list":[
 			{

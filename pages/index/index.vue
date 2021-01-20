@@ -155,7 +155,7 @@
 	border: 1px solid #e2e2e2;
 }
 .tab-title .active{
-	background: #e91e63;
+	background: #41b883;
 	color: #fff;
 }
 </style>

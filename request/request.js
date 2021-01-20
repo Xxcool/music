@@ -15,11 +15,11 @@ const request = (url, data, method) => {
 			success: (res) => {
 				uni.hideLoading();
 				if (res.data.code === 200) {
-					uni.showToast({
-						title: '数据获取成功',
-						duration: 1000,
-						icon: 'none'
-					});
+					// uni.showToast({
+					// 	title: '数据获取成功',
+					// 	duration: 1000,
+					// 	icon: 'none'
+					// });
 					resolve(res)
 				} else {
 					reject(res.data)

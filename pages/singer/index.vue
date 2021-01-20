@@ -118,7 +118,7 @@
 	border-bottom: 3px solid #fff;
 }
 .tab-title .active{
-	border-color: #e91e63;
+	border-color: #41b883;
 }
 .head{
 	position: relative;

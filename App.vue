@@ -70,7 +70,7 @@
 }
 
 .themeColor {
-	color: #e91e63;
+	color: #41b883;
 	font-size: 46upx;
 }
 
@@ -99,7 +99,7 @@ image {
 	height: 0;
 	border-top: 14upx solid transparent;
 	border-bottom: 14upx solid transparent;
-	border-left: 28upx solid #e91e63;
+	border-left: 28upx solid #41b883;
 	border-radius: 5upx;
 }
 

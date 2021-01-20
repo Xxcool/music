@@ -31,7 +31,7 @@
 					interval: 5000,
 					duration: 500,
 					circular: true,
-					indicatorActiveColor: '#e91e63',
+					indicatorActiveColor: '#41b883',
 					previousMargin: '10px'
 				}
 			};

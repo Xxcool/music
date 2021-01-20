@@ -72,7 +72,7 @@
 	margin: 16upx 0upx 0upx 18upx;
 	border-top: 10upx solid transparent;
 	border-bottom: 10upx solid transparent;
-	border-left: 20upx solid #e91e63;
+	border-left: 20upx solid #41b883;
 }
 
 .programRecommendList .item .pic image {
