@@ -1,9 +1,10 @@
 # uni-music
-扫码访问
-![](https://github.com/Xxcool/music/blob/main/static/images/music.png)
 
 #### 介绍
 基于uni-app开发的一款关于音乐的移动端项目/小程序
+扫码访问
+
+![](https://github.com/Xxcool/music/blob/main/static/images/music.png)
 
 #### 技术栈
 vue vuex uni-app
